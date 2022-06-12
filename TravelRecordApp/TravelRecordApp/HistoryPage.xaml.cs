@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using TravelRecordApp.Forms;
 using TravelRecordApp.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,6 +32,16 @@ namespace TravelRecordApp
             }
 
 
+
+        }
+
+        private void postListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var selectedPost = postListView.SelectedItem as Post;  
+            if(selectedPost != null)
+            {
+                Navigation.PushAsync(new PostDetail(selectedPost));
+            }
 
         }
     }
