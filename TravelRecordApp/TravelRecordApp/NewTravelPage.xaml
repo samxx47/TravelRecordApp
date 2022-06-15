@@ -12,6 +12,33 @@
             <Entry x:Name="experienceEntry"
                    Placeholder="Write your experirnce"
                    />
+            <ListView x:Name="venueListView"
+                      HorizontalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Text ="{Binding VenueTitle}"
+                                       FontAttributes="Bold"/>
+                                <Label Grid.Row="1"
+                                       Text ="{Binding Address}"
+                                       />
+                                <Label Text="SomeText"
+                                       Grid.Column="1"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

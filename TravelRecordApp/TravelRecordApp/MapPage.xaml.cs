@@ -10,6 +10,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
+using Position = Xamarin.Forms.Maps.Position;
 
 namespace TravelRecordApp
 {
@@ -55,7 +56,8 @@ namespace TravelRecordApp
                 var location =await  Geolocation.GetLastKnownLocationAsync();
 
                 
-                locator.PositionChanged += locator_PositionChanged;
+                locator.PositionChanged += locator_PositionChanged; 
+
                 await locator.StartListeningAsync(new TimeSpan(0,1,0),100);
 
 
