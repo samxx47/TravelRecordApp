@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TravelRecordApp.NewTravelPage">
+             x:Class="TravelRecordApp.NewTravelPage"
+             xmlns:suave="clr-namespace:SuaveControls.DynamicStackLayout;assembly=SuaveControls.DynamicStackLayout"
+             >
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save"
                      Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text="DynamicForm"
+                     Clicked="ToolbarItem_Clicked_DynamicForm"/>
+        
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
@@ -27,7 +32,8 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Label Text ="{Binding VenueTitle}"
-                                       FontAttributes="Bold"/>
+                                       FontAttributes="Bold"
+                                       />
                                 <Label Grid.Row="1"
                                        Text ="{Binding Address}"
                                        />
@@ -39,6 +45,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout x:Name="dynamicFeilds"
+                 >
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -15,18 +15,26 @@ namespace TravelRecordApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewTravelPage : ContentPage
     {
+       
+          
         public NewTravelPage()
         {
             InitializeComponent();
+
+           //Content = GetDynamicForm();
         }
+
+      
+
 
         protected override  void OnAppearing()
         {
             base.OnAppearing();
             var locator = CrossGeolocator.Current;
             //var position =await locator.GetPositionAsync();
-            
+
             //var venues = VenueLogic.GetVenus(position.Latitude , position.Longitude);
+            
             var venues = VenueLogic.GetVenus();
             venueListView.ItemsSource=venues;
         }
@@ -35,7 +43,8 @@ namespace TravelRecordApp
         {
             Post post = new Post()
             {
-                Experience = experienceEntry.Text
+                Experience = experienceEntry.Text,
+                //UserName = e.ToString(),
             };
 
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
@@ -56,6 +65,12 @@ namespace TravelRecordApp
             }
            
             
+
+        }
+
+        private void ToolbarItem_Clicked_DynamicForm(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new DynamicFormPage());
 
         }
     }
